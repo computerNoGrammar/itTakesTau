@@ -1,6 +1,6 @@
-<body>	
 
 
+<head>
         <style>
 				@font-face {
 				    font-family: 'invasion';
@@ -347,8 +347,49 @@
 				}
 		  
 		  </style>
+		<script>
+		//Menu      
+function choisi(element)
+{
+    element.style.background = "#1763ba";   
+    element.style.color = "white";                 
+}                
 
-		  
+function parti(element)
+{
+    if(element.id != "a_"+document.location.hash.replace('#', ''))
+    {
+        element.style.background = "#89e6ff";   
+        element.style.color = "black";
+    }                   
+}
+
+function dessus(element)
+{
+    if(element.id != "a_"+document.location.hash.replace('#', ''))
+    {
+        element.style.background = "#a6ebff";   
+        element.style.color = "black";
+    }                   
+}
+
+function change(element) 
+{  
+    var liste = document.getElementById("menu").getElementsByTagName('a');
+    for(var i=0; i < liste.length; i++)
+    {
+        liste[i].style.background = "#89e6ff";   
+        liste[i].style.color = "black"; 
+    }
+    choisi(element);
+    document.location.hash = element.id.replace('a_','#');
+}
+
+if(document.location.hash == "" || document.location.hash == "#")
+    document.location.hash = "game";                
+	</script>
+</head>
+<body>		  
         <header>
 		  <div id="hder">
 	            <h1>It takes Tau</h1>	
