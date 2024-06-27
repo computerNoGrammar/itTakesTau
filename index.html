@@ -1,0 +1,790 @@
+<body>	
+
+
+        <style>
+				@font-face {
+				    font-family: 'invasion';
+				    src: url('invasion.ttf') format('truetype');
+				}
+				
+				* {
+				outline:0;
+				text-decoration:none;
+				font-family: monospace;
+				color:#000
+				}
+				
+				a {
+				color:#0d65ac;
+				text-decoration:underline;
+				text-decoration-color:transparent;
+				transition:.3s
+				}
+				
+				a:hover {
+				text-decoration-color:#0d65ac
+				}
+				
+				li {
+				list-style-type:none
+				}
+				
+				html,body {
+				height:100%;
+				margin:0;
+				padding:0
+				}
+				
+				body {
+				display:table;
+				width:100%;
+				background-color:#fff;
+				background: url('../images/fond.svg');
+				}
+				
+				header {
+				cursor:pointer;
+				background: #1763ba
+				}
+				
+				#hder {
+				align-items:center;
+				padding:10px
+				}
+				
+				#hder h1 {
+				font-family: 'invasion';
+				text-align:center;
+				font-size:6rem;
+				font-weight:400;
+				margin:0;
+				padding:0;
+				color: white
+				}
+				
+				h2 {
+				margin-bottom:1.5em;
+				}
+				
+				h3 {
+				margin-top:2em;
+				margin-bottom:-0.5em;
+				padding-bottom:0em;
+				font-size: 1.3rem;
+				}
+				
+				#hder h2 {
+				text-align:center;
+				font-size:2rem;
+				font-weight:400;
+				margin:0;
+				color: white;
+				margin-top:0.5em;
+				margin-bottom:0.5em;
+				}
+				
+				/*
+				#menu {
+				position:sticky;
+				top:0
+				}*/
+				
+				nav {
+				display:flex;
+				justify-content:center;
+				background-color:#f4f4f4;
+				user-select:none;
+				-moz-user-select:none;
+				padding:.2rem;
+				}
+				
+				nav > a {
+				text-decoration: none;
+				cursor:pointer;
+				font-size:1.4rem;
+				padding:.7rem;
+				padding-left: 1.5rem;
+				padding-right: 1.5rem;
+				margin:0.4rem;
+				background-color:#5dd4ff;
+				transition-property:background-color;
+				transition-duration:.3s;
+				color: black;
+				}
+				
+				article > div {
+				scroll-margin-top: 100rem;
+				text-align: center;
+				}
+				
+				article > div:not(:target) {
+				    display: none;
+				}
+				
+				article {
+				text-align:justify;
+				font-size:1.2rem;
+				margin-left:auto;
+				margin-right:auto;
+				padding-left:10%;
+				padding-right:10%;
+				min-width: 0;
+				width: 80%;
+				word-wrap: break-word;
+				margin-bottom: 3rem;
+				margin-top: 3rem;
+				}
+				
+				article ul {
+				    margin-top:0;
+				    padding-left:1.5rem;
+				}
+				
+				article ul li {
+				    list-style-type: disc;
+				}
+				
+				footer {
+				display:table-row;
+				font-size:1em;
+				text-align:center;
+				background:#f4f4f4;
+				height: 0.5rem;
+				}
+				
+				#footer_infos {
+				padding: 1rem;
+				}
+				
+				footer a,footer p {
+				text-align:center;
+				color:#595959
+				}
+				
+				footer a:hover {
+				text-decoration-color:#595959
+				}
+				
+				#footer_infos {
+				display:flex;
+				flex-direction:column;
+				align-items:center
+				}
+				
+				#credits {
+				margin: auto;
+				width: 50%;
+				}
+				
+				/********************** JEU ****************/
+				
+				#gametab {
+				    text-align: center;
+				    width: 60%;
+				    margin: auto;
+				    border: 3px solid #1763ba;
+				    background: white;
+				    word-break: break-word;
+				}
+				
+				#gametab legend {
+				    color: #1763ba;
+				    font-weight: 600;
+				    font-size: 1.5rem;
+				    text-align:center;
+				}
+				
+				input {
+				    font-size: 1.2rem;
+				    margin: 0.3rem;
+				    display: inline-block;
+				    margin-top: 1rem;
+				    padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+				}
+				
+				input[type=submit] {
+				    padding-left: 2rem;
+				    padding-right: 2rem;
+				    background: #1763ba;    
+				    color: white;
+				    border-color: white;
+				    font-weight: bold;
+				    cursor: pointer;
+				}
+				
+				.diginput {
+				    width: 5rem;
+				    height: 1.4rem;
+				    padding:0.1rem;
+				}
+				
+				
+				.blinking-cursor {
+				  //font-weight: 100;
+				  //font-size: 30px;
+				  //color: #2E3D48;
+				  -webkit-animation: 1s blink step-end infinite;
+				  -moz-animation: 1s blink step-end infinite;
+				  -ms-animation: 1s blink step-end infinite;
+				  -o-animation: 1s blink step-end infinite;
+				  animation: 1s blink step-end infinite;
+				}
+				
+				@keyframes "blink" {
+				  from, to {
+				    color: transparent;
+				  }
+				  50% {
+				    color: black;
+				  }
+				}
+				
+				@-moz-keyframes blink {
+				  from, to {
+				    color: transparent;
+				  }
+				  50% {
+				    color: black;
+				  }
+				}
+				
+				@-webkit-keyframes "blink" {
+				  from, to {
+				    color: transparent;
+				  }
+				  50% {
+				    color: black;
+				  }
+				}
+				
+				@-ms-keyframes "blink" {
+				  from, to {
+				    color: transparent;
+				  }
+				  50% {
+				    color: black;
+				  }
+				}
+				
+				@-o-keyframes "blink" {
+				  from, to {
+				    color: transparent;
+				  }
+				  50% {
+				    color: black;
+				  }
+				}
+				
+				#scorebox {
+					display: flex;
+					justify-content: space-around;
+				}
+				
+				#scorebox div {
+					text-align: left;
+				}
+				
+				/* hide arrows
+				 Chrome, Safari, Edge, Opera */
+				input::-webkit-outer-spin-button,
+				input::-webkit-inner-spin-button {
+				  -webkit-appearance: none !important;
+				  margin: 0 !important;
+				}
+				
+				/* Firefox */
+				input[type=number] {
+				  -moz-appearance: textfield !important;
+				}
+				
+				input[type=number]::-webkit-inner-spin-button,
+				input[type=number]::-webkit-outer-spin-button { 
+					-webkit-appearance: none;
+				}
+				
+				/******************** MOBILE ********************/
+				
+				@media (max-width: 1050px) {
+				
+				    #hder h1 {
+				    font-size:4rem;    
+				    }
+				
+				    #hder h2 {
+				    font-size:1.5rem;    
+				    }
+				
+				    #gametab, #credits {
+				    width: 90%;
+				    }
+				
+				    #scorebox {
+				    display:block;
+				    }
+				    
+				    #scorebox div:first-child {
+				    	margin-bottom: 2rem;
+				    }
+				    
+				        #scorebox div {
+				    text-align:center;
+				    }
+				
+				}
+				
+				@media (max-width: 660px) {
+				    #hder h1 {
+				    font-size:3rem;    
+				    }
+				
+				    #hder h2 {
+				    font-size:1rem;    
+				    }
+				    
+				    #gametab, #credits {
+				    width: 95%;
+				    }
+				}
+		  
+		  </style>
+
+		  
+        <header>
+		  <div id="hder">
+	            <h1>It takes Tau</h1>	
+                <h2>A digits of 𝜏 game</h2>					
+            </div>
+        </header>  
+
+        <script>
+            change(document.getElementById("a_"+document.location.hash.replace('#', '')));  
+        </script>
+	    
+        <article id="idarticle">
+
+            <div id="game">
+                <script>
+			var score = 0;
+			var maxnbdec = 1000;
+			var maxsettime = 60;
+			var maxstartnbdec = 100000;
+			var nbdec = 0;
+			var startnbdec = 0;	
+
+			var meilleurScore = 0;
+			var meilleurNbdec = 0;	
+
+			var debut;
+			var fin;
+
+			var tpsMax = 3;
+			var tim;
+
+			var nbspace = 2;
+
+			var perdu = false;
+			var pifocus = false;
+			var practice = false;
+			var option = false;
+
+			var pi1m = '6.2831853071795864769252867665590057683943387987502116419498891846156328125724179972560696506842341359642961730265646132941876892191011644634507188162569622349005682054038770422111192892458979098607639288576219513318668922569512964675735663305424038182912971338469206972209086532964267872145204982825474491740132126311763497630418419256585081834307287357851807200226610610976409330427682939038830232188661145407315191839061843722347638652235862102370961489247599254991347037715054497824558763660238982596673467248813132861720427898927904494743814043597218874055410784343525863535047693496369353388102640011362542905271216555715426855155792183472743574429368818024499068602930991707421015845593785178470840399122242580439217280688363196272595495426199210374144226999999967459560999021194634656321926371900489189106938166052850446165066893700705238623763420200062756775057731750664167628412343553382946071965069808575109374623191257277647075751875039155637155610643424536132260038557532223918184328403978761905144021309717265577318723067636559364606039040706037059379915472451988277824994435505669582630311497144849083013919016590662337234557117781501967635092749298786385101208018554033422780196976480257167232071274153202094203638859111923978935356748988965107595494536942080950692924160933685181389825866273540579783042095043241139320481160763003870225067648600711752804949929465278283985452085398455935647095632720186834432824398491726300605723659491114134996770109891771738539913818544215950186059106423306899744055119204729613309982397636695955071327396148530850557251036368351493457819555455876001632941200322904983843464344295447002828839471370963227223147051042669514836989368770466478147882866690955248337250379671389711241984384443685451005085137753435809892033069336099772544655835721715687676559359533629082019077675727219013601284502504102347859697921682569772538912084839305700444213223726134885572440783898900942474275739219127287438345749355293151479248277817316652919916267809560551801989315281579025389367967051914196516452410449788154534389565369652029539818052802727888749106101364069925049034987993028628596183813185018744433929230314197167748211957719195459509978603235078569362765373677378855483119837118504919079188620999450493616919745472893916973076734724452521982492161024877687809024882730995255615954313828719954002592321788833897371116968127068441444516569772963169120570120336854789045349353577905042770450999093334556479729131922327097724611549129960711872691363486482250301521389589021931921880504577594217862913382737344574978811202030066172358573618417495218356498771780194298193519705227310995637862595696433659978974453176097151280285409551102647592829030474924687290857168895905317356421022827094714790462268543322042719390724628859049698743742202915308071805598688074840146211570781243967748956169569793666428914277375038870128604369063820969620107412293613498385563823958799041228393268575088812874902474363843599967820318391236293502853824794978818143729884639231358904161902931004504632077638602841875242757119132778755741660781395841546934443651251993230028430061360768954690984052108293318504029948857014650373320042648681763814209726634692993029078115925371220110162133175939963271494727681051429182057941282802219424125608780795190313543154008406757398720144611175263527188437462502942410658563836523722517346431583968296976583289412191505413914441835134233445821963381830560347013425497166445743670418707931450242167158302739764182888420135020669342206282534222739817317032796630039403303023370342875315236703113017698199797199647746910566632710152958370717864523709792642658661797141284093505181418309628330997189232743605419639886198489779151425657811846466521945994241688671465309787647823865194927334611672082856277660640764980751797048748834058265531236187546888061414938422403826040660760395242202200898586430321684889719275339677904573695662471053164262899153714524866883786079372852486821546453956056146378308822020893646505432402105304544223320793331146185094221115707526933641306219793053837241129538625141172713240371162014587213197529722358209066977006922273153735064988833360792531595754371121691059308253308170612286888637173539502913228136014004757553182688034254989408411244610779891226281422540008157094665398781629093292917615945416533661268657175713966104716178661315148135909143275505084042299115231628005002524571882604329431019585184619815930947522510353135027150356593329095583490022599229780609279894265924214680875037914719229178038779426223580859565712950064063973830280574161719809602188242944426358952955452448285097090806643143706122845762751700861266435036595973244743443183215433385094974779733098989002293081256867327875800795385313442927706134721931424183615276654332832549777601573851205804569442080634423721640838000845932342392755842675150229919003132099263725894530947285046163540735031813470047014567081134080773487027244449543178300990619688978666192681756153865198795610838682894754883685262597216199777374826520944313903247931729146043263196386390334707625948335458957344845849308733601961353856476561379928009648708074028326299317958818486475793814139558844725016443377914767597246003187552943302457871572031763235115659470466892085630252544074686293063955548320639813310837527958586688390430826837989708894691347663249986838263629618555542077277546863544150913090644155418424038103321925609818527203951976563226646333273057238653372672125471352607089552560700901554471094211719097405581628712480290343612492872535891225506362681566606725084655678899507648744116706229542398521276266935537593919406196678261542197408171826749282885645545269318940949175695574403855430561463535815414314426889461211401466984873862276700986326256808502438513035961388227056026294026095632875770370581857090402331678683931242698286831912517317311411053809930419716067701444852965879457169566326115555121377752892496493715852079070554696060960580117521516502094941832879227253520898512548408416641713223812509086744263071916901375449205803237533590481232685045154390858325983861291075598280746808657505257779279917589514583492852714910508158182902714222738821823878650382152041650405237597063775411685945183355626299398018038423394347455695369453721698006754048485833026010010336646728700779034059787844669034440276256139300235688174903920242457198743246260342288969281807781289908880123973815097032052655010596698374815733617636677020456669017009721650078604266439431036861270910015336565898608275531055879503509227907969366787276609492239933077163076841137067724373450466805661742246565578425015425258926459127979797871642334912540204367129244026993430376381946076239600994681447922073708132863879019580381399279104906010901161371003913460458438278678371360689807964119102004527070723840839894910771876204687910899195567558047484323454223447286870878956443637057248170280133208866517771397341086309413931494917100664646684214603091881033107581373254667599170231251568645976547446397975142831915622392716660118817461362432057529925734892095492983199010994748512538020980755639736718762931482536098512975971122907446957346607809376766872693107589972838541127745863497446641675202246059822735877254178877598724032590308267428497856614440253802950933695307152329547589350400981514311055639307242647852812320272716311814844040406374555210554438011122968511037585060687027968850644683152467221285012780995001731254219071838931795028262069645538612494870726513832156309563623056873359141222172306630089042549478490898908473657721226816829727553401922414302498280860545077215296472682866924703795153290432827535938062990038217151968847839725832843879898144724692936882347880653183680887561026677890514847990165931824570171116431450062142514025336604805859050440237453535124408308410323683269695130339996232282020059921567738185832060576800538208281585772430156849033418174001398564241320836743613071134505065135065722582084975523651659530315919694071244525869720068317445961069979300452583497576405468418444490679712529533829811125685007825515420568055996132731650977852976050913220345934053281531180858198913630130530610743658825406738627570357218081417334229931166868695386771563422772911747356246029175374253206978278191240198787220620583232305762768758198084634946727896091518629862810595269514962387134182202755034420160631180497061813384075343844066458188669353702844289547587875034068873239820806750223470943837100928980527310256324576489251518326660782144507674843642817670173147835430193657749565313991991489813235166882750447941936681601071196983508347637679988939497352531033165531696717690628555137580058190340567059432689124259280870462352013302024824013195117025523571676584083949688472160143860915237864698458559300397503744254535015962510941917809112715842442066693394998471260509895604980228390424765630618228158147720503045485991636144943251833370902666247896098941582383065346860564883720828527279096000896005340992496403585792953395166366542628503405938469779255336880646521855049920715992938513009873636721800647618586919177941390730698812068043330887511780091265764501090511281128964930303750942392436887931650675087771381882260630190523587560059482415330295878851805979391893991131522437312393467572472512250432641725738444206549778437308729604593561411531230289264093855813642414776755628467125647217926416136444936024496522354371792762818367807347344441776643027511200745596788008305940057566153341888949120269112834508741813958792245142859789343087156937577228891624629187143969845056943210098442484940282429561146910210016038173992066055269574162163509002386142824467817327876679058851573810152862012767039668778683192263708695092991139562076586194329302876814014147208224747199686904503221014054112470532025529696616815223660261055864108549257308072073490657302114131749764513963158735795339484411501193668817394700402820413447170040144904512653026821118480380548432496878280719979070789181888140938241828187740025291200324748576042185529158621315845910499774551692202529673999784513919376318411200203310512751357';
+			
+				          
+                    	function msToTime(duration) 
+                    	{	
+				var milliseconds = parseInt((duration%1000)), seconds = parseInt((duration/1000)%60), minutes = parseInt((duration/(1000*60)%60));
+				seconds = (seconds < 10) ? "0" + seconds : seconds;
+		                if(milliseconds < 10)
+		                    milliseconds = "00"+milliseconds;
+		                else
+		                    if(milliseconds < 100)
+		                        milliseconds = "0"+milliseconds;
+                        	return minutes + ":" + seconds + "'" + milliseconds;
+                    	}
+
+			function setScore(nb)
+			{
+				score = nb;
+				document.getElementById('score').innerHTML = msToTime(nb);	
+			}
+
+			function setNbdec(nb)
+			{
+				nbdec = nb;
+				document.getElementById('nbdec').innerHTML = nb;
+			}
+
+			function setMeilleurScore(nb)
+			{
+				meilleurScore = nb;
+				document.getElementById('idmeilleurScore').innerHTML = msToTime(nb);
+			}
+
+			function setMeilleurNbdec(nb)
+			{
+				meilleurNbdec = nb;
+				document.getElementById('idmeilleurNbdec').innerHTML = nb;
+			}
+
+	                function resetsetting()
+	                {
+	                	pifocus = false;
+			        document.getElementById('boutons').innerHTML = '<input type="submit" name="jouer" value="Play" onclick="start()"   />'; 
+			        document.getElementById('memorypi').innerHTML = "";
+			        document.getElementById('blinkingu').innerHTML = "";
+			        document.getElementById("memorypibox").style.display = 'none';
+			        document.getElementById("fauxbox").style.display = 'none';
+			        document.getElementById('faux').innerHTML = "&nbsp;";
+			        clearTimeout(tim);
+		                setScore(0);
+		                setNbdec(0);
+		                if(practice)
+		                	document.getElementById('boutons').innerHTML = '<br/><input type="submit" name="back" value="Back" onclick="entrainement()"   />&nbsp;<input type="submit" name="jouer" value="Play" onclick="start()"   />';
+		                if(option)
+		                	document.getElementById('boutons').innerHTML = '<br/><input type="submit" name="back" value="Back" onclick="backoptions(); options()"   />&nbsp;<input type="submit" name="apply" value="Apply" onclick="applyoptions()"   />';
+		                if(!practice && !option)
+			                document.getElementById('boutons').innerHTML = '<input type="submit" name="jouer" value="Play" onclick="start()"  /><br /><input type="submit" id="identr" name="entr" value="Practice" onclick="entrainement()" /><br /><input type="submit" id="idoption" name="option" value="Options" onclick="options()" />';
+			}   
+
+	                function options()
+	                {
+                	        if(practice)
+		        		entrainement();
+	                	option = !option;  
+			        resetsetting();	   			                    
+				if(option)
+		                {
+					document.getElementById("options").style.display = '';
+					document.getElementById("idoption").style = "background:#89e6ff; color:black";
+					
+		                }
+		                else
+		                {
+					document.getElementById("options").style.display = 'none';
+					document.getElementById("idoption").style = "background:#1763ba";
+		                }
+				     
+	                } 
+
+	                function settimeoutpi()
+	                {
+	                	var n = document.getElementById('timeoutpi').value;
+	                	if(n > maxsettime)
+	                		n = maxsettime;
+	                	if(n < 1)
+	                		n = 1;
+	                	document.getElementById('timeoutpi').value = n;	
+	                }
+	                
+	                function setnbspacepi()
+	                {
+	                	var n = document.getElementById('nbspacepi').value;
+	                	if(n > maxnbdec)
+	                		n = maxnbdec;
+	                	if(n < 1)
+	                		n = 1;
+	                	document.getElementById('nbspacepi').value = n;		                	
+	                }
+	                
+	                function applyoptions()
+	                {
+	                	tpsMax = parseInt(document.getElementById('timeoutpi').value);
+	                	nbspace = parseInt(document.getElementById('nbspacepi').value);
+	                	document.getElementById('timeoutrule').innerHTML = tpsMax;
+	                	options();
+	                }
+	                
+	                function backoptions()
+	                {
+	                	document.getElementById('timeoutpi').value = tpsMax;
+	                	document.getElementById('nbspacepi').value = nbspace;
+	                }
+	               
+			function entrainement() 
+			{
+				if(option)
+					options();
+				practice = !practice;
+				resetsetting();
+				decimales();
+				if(practice)
+				{
+					document.getElementById("aide").style.display = '';
+					document.getElementById("identr").style = "background:#89e6ff; color:black";
+				}
+				else
+				{
+					document.getElementById("aide").style.display = 'none';
+					document.getElementById("identr").style = "background:#1763ba";
+				}
+					        
+			}
+
+	                
+	                function decimales()
+	                {
+		                pifocus = false;
+			        document.getElementById('afficher-pi').innerHTML = "";
+			        var n = parseInt(document.getElementById('nbdecpi').value);
+			        if(n > maxnbdec)
+		                {
+				        n = maxnbdec;
+	                    		document.getElementById('nbdecpi').value = n;
+		                }
+		             	if(n < 1)
+		                {
+				        n = 1;
+	                    		document.getElementById('nbdecpi').value = n;
+		                }
+			        var val = pi1m.substring(startnbdec+2,startnbdec+n+2);
+			        var s = parseInt(document.getElementById('nbspacepi').value);
+			        if(s > maxnbdec)
+		                {
+				    s = maxnbdec;
+		                    document.getElementById('nbspacepi').value = s;
+		                }
+		                if(startnbdec == 0)
+		                	document.getElementById('afficher-pi').innerHTML = "6.";
+		               	else
+		               		document.getElementById('afficher-pi').innerHTML = "..";
+			        if(s > 0)
+				        for(i = s; i < val.length; i=i+s+1)
+					        val = val.substring(0,i)+" "+val.substring(i,val.length);			
+			        document.getElementById('afficher-pi').innerHTML += val;
+	                }
+	               
+	                function startdecimales()
+	                {
+	                	pifocus = false;
+	                	m = parseInt(document.getElementById('startnbdecpi').value);
+	                	if(m > maxstartnbdec)
+		                {
+				    m = maxstartnbdec;
+		                    document.getElementById('startnbdecpi').value = m;
+		                }
+		                if(m < 1)
+		                {
+				    m = 1;
+		                    document.getElementById('startnbdecpi').value = m;		                
+		                }
+		                startnbdec = m-1
+		                decimales();
+	                }
+
+	                function start()
+	                {
+	                	if(option)
+	                		options();
+	                	resetsetting();	
+		                perdu = false;	
+		                document.getElementById("memorypi").style.color = "green"; 
+		                var debdec = '6.';
+		                if(practice)
+		                {
+				        if(startnbdec == 1)
+				        	debdec = "6.2";                       
+		  		        if(startnbdec == 2)
+				        	debdec = "6.28 ";
+				        if(startnbdec > 2)
+						debdec = "..";
+				}                      
+		                document.getElementById('memorypi').innerHTML = '<span style="color:black">'+debdec+'</span>';
+		                document.getElementById('blinkingu').innerHTML = "_";
+		                document.getElementById("memorypibox").style.display = '';
+				document.getElementById("fauxbox").style.display = '';
+				document.getElementById("faux").style = "background:white"; 
+			        document.getElementById("faux").style.width = "100%";
+		                document.getElementById("faux").style.color = "green"; 
+		                document.getElementById('faux').innerHTML = "Go!"; 		                
+			        document.getElementById("memorypifocus").focus();
+
+		                if(!practice)   
+					document.getElementById("boutons").innerHTML = '<input type="submit" name="back" value="Back" onclick="resetsetting()"   />&nbsp;<input type="submit" name="jouer" value="Restart" onclick="start()"  />';
+				else
+				        document.getElementById("boutons").innerHTML = '<input type="submit" name="back" value="Back" onclick="entrainement()"   />&nbsp;<input type="submit" name="jouer" value="Restart" onclick="start()"  />';
+		                pifocus = true;
+		                focusing();
+	                }
+
+	                function gameover(texte)
+	                {
+		                clearTimeout(tim);
+			        setScore(score);
+		                if(!practice && nbdec >= meilleurNbdec)
+		                {
+		                    if(score < meilleurScore || meilleurScore == 0 || nbdec > meilleurNbdec)
+		                        setMeilleurScore(score);
+		                    setMeilleurNbdec(nbdec);
+		                }
+		                
+		                document.getElementById("faux").style = "background:white";
+		                document.getElementById("faux").style.color = "red";   
+		                document.getElementById("faux").style.width = "100%";
+		                document.getElementById("faux").innerHTML = texte;
+		                document.getElementById('blinkingu').innerHTML = "&nbsp;";
+		                document.getElementById("boutons").innerHTML = '<input type="submit" name="back" value="Back" onclick="resetsetting()"   />&nbsp;<input type="submit" name="jouer" value="Try again" onclick="start()" />';          		               
+		                perdu = true;
+		                pifocus = false;
+	                }
+
+	                function rebour(tps)
+	                {	              
+			        if (tps > 0)
+			        {
+			        	document.getElementById("faux").innerHTML = "&nbsp;";
+			        	if(tps/tpsMax > 2/3)
+			        	        document.getElementById("faux").style = "background:green";
+			              	if(tps/tpsMax <= 2/3)
+			        		document.getElementById("faux").style = "background:orange";
+			        	if(tps/tpsMax <= 1/3)
+			        		document.getElementById("faux").style = "background:red";
+				        
+					document.getElementById("faux").style.width = tps/tpsMax*10+"em";			
+				        tim = setTimeout("rebour("+(tps-0.01)+")", 10);
+			        }
+			        else
+			        {
+					var addn = (pi1m[2+nbdec] == 8) ? "n" : "";
+					gameover('Time\'s up! The next digit is a'+addn+' '+pi1m[2+nbdec]+'. Game over.');
+			        }
+	                }	
+	                
+	                function focusing()
+	                {
+	                	document.getElementById("memorypifocus").focus();  
+	                	if(pifocus)
+	                		setTimeout("focusing()", 10);
+	                }
+	                
+	                document.onkeyup = function(e)
+	                {
+				if(e.which == 13)
+				{
+					if(!practice && nbdec >= meilleurNbdec)
+					{
+						if(score < meilleurScore || meilleurScore == 0 || nbdec > meilleurNbdec)
+							setMeilleurScore(score);
+						setMeilleurNbdec(nbdec);
+					}
+					start();                    
+				}
+	                }	
+	                
+	                
+	                
+	                
+	                function evepad()
+	                {
+                      	        var dec = document.getElementById("memorypifocus").value;
+			        var ispnbdec = 2+nbdec;
+			        if(practice)
+			        	ispnbdec += startnbdec;
+
+		                if(!perdu && pifocus)
+		                {						
+			                if(dec == '0'  || dec == '1'  || dec == '2'  || dec == '3'  || dec == '4'  || dec == '5'  || dec == '6'  || dec == '7'  || dec == '8'  || dec == '9')
+			                {         
+				        	if(nbdec == 0)
+				                {
+						   debut = new Date();
+				                }
+				                else
+				                {     
+				                    fin = new Date();
+				                    if(dec == pi1m[ispnbdec])
+				                        setScore(fin.getTime()-debut.getTime());
+				                }     
+				      
+						    if(dec == pi1m[ispnbdec])
+						    {
+						    	    setNbdec(nbdec+1);
+
+							    clearTimeout(tim);
+							    
+							    if(!practice)
+                    						    rebour(tpsMax);  
+                    					    
+							    document.getElementById('memorypi').innerHTML += dec;  
+							    
+
+							     if(practice)
+							    {
+							    	    document.getElementById("faux").style.color = "green"; 
+								    if(nbdec == document.getElementById('nbdecpi').value)
+									    document.getElementById("faux").innerHTML = 'You have completed your challenge. Congratulations!';
+								    
+								    else    
+									    document.getElementById("faux").innerHTML = 'Correct!';
+							    }                
+						    }
+						    else
+						   {
+							    if(practice)
+							    {
+							    				                  
+							    	document.getElementById("faux").style.color = "red";
+							    	document.getElementById("faux").innerHTML = 'Wrong digit! Try again.';
+									    
+							    }
+							    else 
+							    {
+								    document.getElementById('memorypi').innerHTML += '<span style="color:red">'+dec+'</span>';
+								    var addn = (pi1m[ispnbdec] == 8) ? "n" : "";
+								    document.getElementById('blinkingu').innerHTML = "&nbsp;";
+							   	gameover('Wrong digit! It was a'+addn+' '+pi1m[ispnbdec]+'. Game over.');
+							   }
+						  }
+						var s = nbspace; 
+				                if(s < 1) s = 100;
+
+				                if(nbdec+1 > 1 && ((nbdec+1)%s == 1 || s == 1))
+				                    document.getElementById('memorypi').innerHTML += " ";
+			                 }
+		                }
+		                
+		                if(!practice && nbdec >= meilleurNbdec)
+		                {
+		                    if(score < meilleurScore || meilleurScore == 0 || nbdec > meilleurNbdec)
+		                        setMeilleurScore(score);
+		                    setMeilleurNbdec(nbdec);
+		                }
+		                document.getElementById("memorypifocus").value = "";
+	                }	
+                </script>
+
+                <br>
+                <fieldset id="gametab">
+                    <br>
+                    <div id="scorebox" style="margin-bottom:2em">
+                    	<div>
+		                <b>Best score:</b> <span id="idmeilleurNbdec">62</span> digits<br>
+		                <b>Best time:</b> <span id="idmeilleurScore">0:22'388</span>
+		        </div>
+		        <div>
+		                <b>Score:</b> <span id="nbdec">0</span> digits<br>  
+		                <b>Time:</b> <span id="score">0:00'000</span>
+		        </div>
+                    </div>
+                    <div id="aide" style="display:none">	
+                        <p>
+                        Practice from digit number <input class="diginput" style="width:4.8rem" ;="" type="number" id="startnbdecpi" value="1" onkeyup="resetsetting(); startdecimales()" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" onfocus="resetsetting();">. Display <input class="diginput" style="width:3.2rem" ;="" type="number" id="nbdecpi" value="50" onkeyup="resetsetting(); decimales()" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" onfocus="resetsetting();"> first digits:</p>
+	                <p id="afficher-pi"></p>
+                    </div>
+                    <p id="memorypibox" style="margin-top: -1em; display: none;">
+                    	<input style="width:0;heigh:0;padding: 0px; border: 0px; opacity:0" id="memorypifocus" type="number" oninput="evepad();">
+			<br>
+                    	<span id="memorypi" style="color: black;"></span><span id="blinkingu" class="blinking-cursor"></span>
+                    </p>
+                    <div id="options" style="display: none;">
+			    <p>
+			    	Time out after <input class="diginput" style="width:1.8rem" ;="" type="number" id="timeoutpi" value="3" onkeyup="settimeoutpi();" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"> seconds.
+			    </p>
+			    <p>
+			    	Display the digits in groups of <input class="diginput" style="width:3.2rem" ;="" type="number" id="nbspacepi" value="2" onkeyup="setnbspacepi();" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57">.
+			    </p>
+                    </div>
+                    <p></p>
+                    <div id="fauxbox" style="display: none;"><div style="display: flex;justify-content: center;"><p id="faux" style="background: white; width: 100%; color: green;">&nbsp;</p></div></div>
+                    <p id="boutons"><input type="submit" name="jouer" value="Play" onclick="start()"><br><input type="submit" id="identr" name="entr" value="Practice" onclick="entrainement()"><br><input type="submit" id="idoption" name="option" value="Options" onclick="options()" style="background: rgb(23, 99, 186);"></p>
+                  
+</body>
